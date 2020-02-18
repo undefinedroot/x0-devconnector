@@ -1,0 +1,6 @@
+https://github.com/settings/applications/new
+
+module.exports = {
+  clientId: '',
+  clientSecret: ''
+};

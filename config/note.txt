@@ -1,0 +1,6 @@
+need keys.js with custom info:
+
+module.exports = {
+  mongoURI: 'mongodb+srv://  (user)  :  (pass)  @  (cluster)  .mongodb.net/test?retryWrites=true&w=majority',
+  secretOrKey: '(custom secret key value for jwt signing)'
+};

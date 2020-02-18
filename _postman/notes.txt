@@ -1,0 +1,11 @@
+at postman, create environment with variables;
+
+'url' initial & current value = http://localhost:5000
+
+and 'authToken'
+
+under api/users/login Tests tab
+
+if (pm.response.code === 200) {
+    pm.environment.set("authToken", pm.response.json().token);
+}

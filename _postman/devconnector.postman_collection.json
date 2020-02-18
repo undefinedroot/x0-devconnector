@@ -1,0 +1,762 @@
+{
+	"info": {
+		"_postman_id": "0d372b43-285c-47f8-bfa0-ac84ad6a09c6",
+		"name": "devconnector",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "api/users/register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test1",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "1@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "password2",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e1e0d781-d773-418c-a25b-275147e7903e",
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    pm.environment.set(\"authToken\", pm.response.json().token.replace('Bearer ',''));",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "1@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/current",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/current",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"current"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "api/profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "handle",
+									"value": "test1",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "Billionaire Investor",
+									"type": "text"
+								},
+								{
+									"key": "skills",
+									"value": "Deal Making, Business Acquisition",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Polished Rough Diamonds LLC",
+									"type": "text"
+								},
+								{
+									"key": "website",
+									"value": "http://google.com",
+									"type": "text"
+								},
+								{
+									"key": "twitter",
+									"value": "http://twitter.com/prdllc",
+									"type": "text"
+								},
+								{
+									"key": "facebook",
+									"value": "http://facebook.com/prdllc",
+									"type": "text"
+								},
+								{
+									"key": "linkedin",
+									"value": "http://linkedin.com/prdllc",
+									"type": "text"
+								},
+								{
+									"key": "instagram",
+									"value": "http://instagram.com/prdllc",
+									"type": "text"
+								},
+								{
+									"key": "githubUsername",
+									"value": "squareinzero",
+									"type": "text"
+								},
+								{
+									"key": "bio",
+									"value": "hmm?",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/profile/handle",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/profile/handle/crisaegrim",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"handle",
+								"crisaegrim"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/profile/user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/profile/user/5df75153f6f1d9071c862354",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"user",
+								"5df75153f6f1d9071c862354"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/profile/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/profile/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Add/Update) api/profile/experience",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Co-Founder",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "Water Empire Co.",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Worldwide",
+									"type": "text"
+								},
+								{
+									"key": "from",
+									"value": "02-12-2024",
+									"type": "text"
+								},
+								{
+									"key": "to",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "current",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "founder of conglomerate",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/profile/experience",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"experience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Add/Update) api/profile/education",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "school",
+									"value": "Hard Knocks",
+									"type": "text"
+								},
+								{
+									"key": "degree",
+									"value": "QLA",
+									"type": "text"
+								},
+								{
+									"key": "fieldOfStudy",
+									"value": "Business Acquisition",
+									"type": "text"
+								},
+								{
+									"key": "from",
+									"value": "12-16-2019",
+									"type": "text"
+								},
+								{
+									"key": "to",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "current",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "QLA mode to be a future billionaire",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/profile/education",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"education"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/profile/experience",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/profile/experience/5df89d296633e20f90d92c99",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"experience",
+								"5df89d296633e20f90d92c99"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/profile/education",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/profile/education/5df8a02754d9f41340341a0a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"education",
+								"5df8a02754d9f41340341a0a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/profile",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "api/posts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "text",
+									"value": "post from first-user",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "haha",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(All Posts) api/posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/posts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Single Post) api/posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/posts/5df972261041f30da0842e70",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"5df972261041f30da0842e70"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Delete post by id) api/posts",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/posts/5df97503970068148c1f426f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"5df97503970068148c1f426f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/posts/like",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/posts/like/5df97b0941a8040a3cb7554f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"like",
+								"5df97b0941a8040a3cb7554f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/posts/unlike",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/posts/unlike/5df97503970068148c1f426f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"unlike",
+								"5df97503970068148c1f426f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/posts/comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "text",
+									"value": "this is a wierd comment",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/posts/comment/5df97b0941a8040a3cb7554f",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"comment",
+								"5df97b0941a8040a3cb7554f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/posts/comment",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/posts/comment/5df97b0941a8040a3cb7554f/5df999b1eaaa8602e8b3c2ec",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"comment",
+								"5df97b0941a8040a3cb7554f",
+								"5df999b1eaaa8602e8b3c2ec"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a780b0ea-ca2a-4600-ba1d-4975bec4625a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "66381801-a6e5-416d-9a67-6fd94dcfe798",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,23 @@
+- sign up at heroku, install heroku CLI
+
+>> heroku login
+>> heroku create (name of application)
+
+- heroku settings on web:
+  (dashboard.heroku.com/apps/.../settings)
+  (usage of heroku environment variables)
+
+  Config Vars
+    MONGO_URI       ......
+    SECRET_OR_KEY   ....
+
+
+>> heroku git:remote -a (name of application)
+
+(build reactjs at heroku server using package.json; heroku-postbuild script)
+
+>> git push heroku master
+
+NOTE: ip whitelisting via mongodb
+https://help.heroku.com/JS13Y78I/i-need-to-whitelist-heroku-dynos-what-are-ip-address-ranges-in-use-at-heroku
+https://docs.atlas.mongodb.com/security-whitelist/
